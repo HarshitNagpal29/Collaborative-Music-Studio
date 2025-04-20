@@ -3,7 +3,7 @@ import { io } from 'socket.io-client';
 let socket;
 
 export const initSocket = () => {
-  socket = io('http://localhost:5001', {
+  socket = io(import.meta.env.VITE_API_URL, {
     withCredentials: false,
   });
   
