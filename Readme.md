@@ -1,3 +1,4 @@
+```
 collaborative-music-studio/
 ├── client/                  # Frontend React application
 │   ├── public/
@@ -26,3 +27,4 @@ collaborative-music-studio/
 │   ├── socket/              # Socket.io logic
 │   └── index.js             # Entry point
 └── README.md
+```
