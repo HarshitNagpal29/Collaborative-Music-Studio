@@ -1,3 +1,4 @@
+page live at: https://harshitnagpal29.github.io/Collaborative-Music-Studio/
 ```
 collaborative-music-studio/
 ├── client/                  # Frontend React application
