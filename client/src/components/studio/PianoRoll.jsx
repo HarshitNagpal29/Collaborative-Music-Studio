@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { createSynth } from '../../services/soundBankService';
 import * as Tone from 'tone';
 
 // Define piano constants
@@ -188,6 +189,19 @@ function PianoRoll({ notes, onNotesChange, bpm, isPlaying, currentInstrument }) 
     
     onNotesChange(newNotes);
   }, [gridState, onNotesChange]);
+
+  useEffect(() => {
+    // Create synth based on selected instrument
+    const newSynth = createSynth(currentInstrument);
+    setSynth(newSynth);
+    
+    // Cleanup function
+    return () => {
+      if (newSynth) {
+        newSynth.dispose();
+      }
+    };
+  }, [currentInstrument]);
   
   const handleMouseDown = (rowIndex, colIndex) => {
     const newValue = !gridState[rowIndex][colIndex];

@@ -38,7 +38,7 @@ function Studio() {
       // Fetch existing composition
       const fetchComposition = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/compositions/${id}`);
+          const response = await axios.get(`http://localhost:5001/api/compositions/${id}`);
           setComposition(response.data);
           setBpm(response.data.bpm);
           setLoading(false);
@@ -100,11 +100,11 @@ function Studio() {
       let response;
       
       if (isNewComposition) {
-        response = await axios.post('http://localhost:5000/api/compositions', composition);
+        response = await axios.post('http://localhost:5001/api/compositions', composition);
         // Redirect to the new composition's edit page
         navigate(`/studio/${response.data._id}`, { replace: true });
       } else {
-        response = await axios.put(`http://localhost:5000/api/compositions/${id}`, composition);
+        response = await axios.put(`http://localhost:5001/api/compositions/${id}`, composition);
       }
       
       alert('Composition saved successfully!');
